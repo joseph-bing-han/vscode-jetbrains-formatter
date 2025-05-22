@@ -1,0 +1,101 @@
+{
+  "name": "vscode-jetbrains-formatter",
+  "displayName": "JetBrains Formatter",
+  "description": "Format files using JetBrains IDE command-line formatter",
+  "version": "1.0.6",
+  "icon": "icon.png",
+  "publisher": "joseph-bing-han",
+  "author": {
+    "name": "Joseph"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joseph-bing-han/vscode-jetbrains-formatter"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onCommand:jetbrainsFormatter.formatDocument",
+    "onCommand:jetbrainsFormatter.formatDirectory"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "jetbrainsFormatter.formatDocument",
+        "title": "Format Document with JetBrains IDE"
+      },
+      {
+        "command": "jetbrainsFormatter.formatDirectory",
+        "title": "Format Directory with JetBrains IDE"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "jetbrainsFormatter.formatDirectory",
+          "when": "explorerResourceIsFolder",
+          "group": "7_modification"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "JetBrains Formatter",
+      "properties": {
+        "jetbrainsFormatter.formatShPath": {
+          "type": "string",
+          "default": "",
+          "description": "Full absolute path to JetBrains format.sh script"
+        },
+        "jetbrainsFormatter.allowDefaults": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use the default code style settings when the code style is not defined for a file or a group of files"
+        },
+        "jetbrainsFormatter.recursive": {
+          "type": "boolean",
+          "default": true,
+          "description": "Process specified directories recursively"
+        },
+        "jetbrainsFormatter.mask": {
+          "type": "string",
+          "default": "*",
+          "description": "Comma-separated list of file masks that define the files to be processed"
+        },
+        "jetbrainsFormatter.settings": {
+          "type": "string",
+          "default": "",
+          "description": "Full absolute path to the code style settings file"
+        },
+        "jetbrainsFormatter.charset": {
+          "type": "string",
+          "default": "utf-8",
+          "description": "Charset for reading and writing source files"
+        },
+        "jetbrainsFormatter.formatOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically format files when saving"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "@types/vscode": "^1.60.0",
+    "typescript": "^5.8.3"
+  }
+}
