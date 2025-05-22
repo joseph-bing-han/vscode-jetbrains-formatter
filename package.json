@@ -2,7 +2,7 @@
   "name": "vscode-jetbrains-formatter",
   "displayName": "JetBrains Formatter",
   "description": "Format files using JetBrains IDE command-line formatter",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "icon": "icon.png",
   "publisher": "joseph-bing-han",
   "author": {
@@ -81,6 +81,44 @@
           "type": "boolean",
           "default": false,
           "description": "Automatically format files when saving"
+        },
+        "jetbrainsFormatter.formatOnSaveExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "java",
+            "kt",
+            "scala",
+            "groovy",
+            "py",
+            "php",
+            "js",
+            "ts",
+            "jsx",
+            "tsx",
+            "html",
+            "xml",
+            "xhtml",
+            "css",
+            "scss",
+            "sass",
+            "less",
+            "json",
+            "yaml",
+            "yml",
+            "sql",
+            "go",
+            "rb",
+            "sh",
+            "bash",
+            "ksh",
+            "properties",
+            "ini",
+            "toml"
+          ],
+          "description": "List of file extensions to format when formatOnSave is enabled, covering all file types supported by JetBrains IntelliJ IDEA"
         }
       }
     }
