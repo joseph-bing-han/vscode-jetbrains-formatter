@@ -2,7 +2,7 @@
   "name": "vscode-jetbrains-formatter",
   "displayName": "JetBrains Formatter",
   "description": "Format files using JetBrains IDE command-line formatter",
-  "version": "1.0.7",
+  "version": "1.0.10",
   "icon": "icon.png",
   "publisher": "joseph-bing-han",
   "author": {
@@ -20,6 +20,18 @@
     "Formatters"
   ],
   "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:json",
+    "onLanguage:python",
+    "onLanguage:java",
+    "onLanguage:go",
+    "onLanguage:php",
+    "onLanguage:html",
+    "onLanguage:css",
+    "onLanguage:xml",
+    "onLanguage:yaml",
+    "onLanguage:markdown",
     "onCommand:jetbrainsFormatter.formatDocument",
     "onCommand:jetbrainsFormatter.formatDirectory"
   ],
